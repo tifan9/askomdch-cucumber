@@ -15,7 +15,11 @@ public class Hooks {
     public void after(){
         driver = DriverFactory.getDriver();
         if (driver != null) {
-            driver.quit();
+            try {
+                driver.quit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
